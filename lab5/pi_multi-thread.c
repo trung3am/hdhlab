@@ -41,14 +41,15 @@ int main(int argc, char *argv[])
 void *calPi(void *param){
     
     double number = strtod(param,NULL)/NTHREADS;
-    
+    float threadCount =0;
     srand((unsigned int)time(NULL));
 
     float a = 2.0;
     for (double i=0.0;i<number;i++){
         if(sqrt((pow((((float)rand()/(float)(RAND_MAX)) * a)-1,2.0))+(pow((((float)rand()/(float)(RAND_MAX)) * a)-1,2.0))) <=1){
-            count++;    
+           threadCount++;    
         }
     }
+    count += threadCount;
     printf("count: %lf\n",count );
 }
