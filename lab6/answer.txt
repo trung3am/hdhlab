@@ -1,0 +1,5 @@
+In this we count amount of point in the loop with random point in a square also contained by a circle with radius equal to 1;
+in pi_private, for loop count is using threadCount for temporary varible for looping, when is done looping it will add into global count.
+there is no lock to control if global count variable is the latest because when it's fetching global count for add value, we cannot tell if there is any thread are updating the global count.
+
+in pi_shared for loop, we updating directly global count, we already implement a mutex_lock and lock it's before we run our loops so we can assure that there is only one thread can access and update the global count variable at a time.
